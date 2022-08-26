@@ -31,4 +31,8 @@ public class Account
         }
         return result;
     }
+    public decimal GetBalance()
+    {
+        return Balance;
+    }
 }
