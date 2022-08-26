@@ -51,7 +51,7 @@ public class AccountTests
     public void InsertNegativeNumberShouldReturnFalse()
     {
         var expected = false;
-        var expectedBalance = 130M;
+        var expectedBalance = 100M;
         var result = sut.Insert(-50.5M);
 
         Assert.Equal(expected, result.success);
