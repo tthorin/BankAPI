@@ -14,8 +14,8 @@ public class AccountTests
         var expectedBalance = 49.5M;
         var result = sut.Withdraw(50.5M);
 
-        Assert.Equal(expected, result);
-        Assert.Equal(expectedBalance, sut.Balance);
+        Assert.Equal(expected, result.success);
+        Assert.Equal(expectedBalance, result.newBalance);
     }
     [Fact()]
     public void WithdrawMoreThanBalanceShouldReturnFalse()
@@ -24,8 +24,8 @@ public class AccountTests
         var expectedBalance = 100M;
         var result = sut.Withdraw(150M);
 
-        Assert.Equal(expected, result);
-        Assert.Equal(expectedBalance, sut.Balance);
+        Assert.Equal(expected, result.success);
+        Assert.Equal(expectedBalance, result.newBalance);
     }
     [Fact()]
     public void WithdrawNegativeNumberShouldReturnFalse()
@@ -34,8 +34,8 @@ public class AccountTests
         var expectedBalance = 100M;
         var result = sut.Withdraw(-50M);
 
-        Assert.Equal(expected, result);
-        Assert.Equal(expectedBalance, sut.Balance);
+        Assert.Equal(expected, result.success);
+        Assert.Equal(expectedBalance, result.newBalance);
     }
     [Fact()]
     public void InsertPositiveNumberShouldReturnTrue()
@@ -44,7 +44,7 @@ public class AccountTests
         var expectedBalance = 150.5M;
         var result = sut.Insert(50.5M);
 
-        Assert.Equal(expected, result);
+        Assert.Equal(expected, result.success);
         Assert.Equal(expectedBalance, sut.Balance);
     }
     [Fact()]
@@ -54,7 +54,7 @@ public class AccountTests
         var expectedBalance = 100M;
         var result = sut.Insert(-50.5M);
 
-        Assert.Equal(expected, result);
-        Assert.Equal(expectedBalance, sut.Balance);
+        Assert.Equal(expected, result.success);
+        Assert.Equal(expectedBalance, result.newBalance);
     }
 }

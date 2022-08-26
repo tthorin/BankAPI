@@ -10,7 +10,7 @@ public class Account
         Balance = startBalance;
     }
 
-    public bool Withdraw (decimal amount)
+    public BankResponse Withdraw (decimal amount)
     {
         var result = false;
         if (amount <= Balance && amount >= 0)
@@ -18,10 +18,10 @@ public class Account
             Balance -= amount;
             result = true;
         }
-        return result;
+        return new BankResponse { success=result,newBalance=Balance };
     }
 
-    public bool Insert(decimal amount)
+    public BankResponse Insert(decimal amount)
     {
         var result = false;
         if (amount >= 0)
@@ -29,7 +29,7 @@ public class Account
             Balance += amount;
             result = true;
         }
-        return result;
+        return new BankResponse { success=result,newBalance=Balance};
     }
     public decimal GetBalance()
     {
