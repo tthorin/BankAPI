@@ -24,19 +24,6 @@ public class BankController : ControllerBase
         return json;
     }
 
-    //// GET api/<BankController>/5
-    //[HttpGet("{id}")]
-    //public string Get(int id)
-    //{
-    //    return "value";
-    //}
-
-    //// POST api/<BankController>
-    //[HttpPost]
-    //public void Post([FromBody] string value)
-    //{
-    //}
-
     // PUT api/<BankController>/5
     [HttpPut("withdraw/{amount}")]
     public string Withdraw(decimal amount)
@@ -53,9 +40,5 @@ public class BankController : ControllerBase
         return json;
     }
 
-    //// DELETE api/<BankController>/5
-    //[HttpDelete("{id}")]
-    //public void Delete(int id)
-    //{
-    //}
+    
 }
