@@ -2,10 +2,11 @@
 
 public class Account
 {
-    public decimal Balance { get; private set; } = 100;
+    public decimal Balance { get; private set; }
 
-    public Account(int startBalance)
+    public Account(decimal startBalance)
     {
+        if (startBalance < 0) startBalance = 0;
         Balance = startBalance;
     }
 
@@ -22,6 +23,12 @@ public class Account
 
     public bool Insert(decimal amount)
     {
-        return true;
+        var result = false;
+        if (amount >= 0)
+        {
+            Balance += amount;
+            result = true;
+        }
+        return result;
     }
 }
